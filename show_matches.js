@@ -1,5 +1,5 @@
 const POLLS_GROUP_NAME = "asurveys";
-const POLLS_GROUP_ID = "172053584";
+const POLLS_GROUP_ID = "-172053584";
 
 function httpGetAsync(theUrl, callback) {
     const xmlHttp = new XMLHttpRequest();
@@ -11,14 +11,15 @@ function httpGetAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
-function getGroupWall() {
-
+function getGroupWallURL(access_token) {
+    return "https://api.vk.com/method/execute.wall.get"
+        + "?owner_id=" + POLLS_GROUP_ID
+        + "&access_token=" + access_token;
 }
 
-function buildVoteList(access_token) {
-
-}
-
-function showMatches() {
-
+function showMatches(access_token) {
+    const matchesP = document.getElementById("matches_list_p");
+    httpGetAsync(getGroupWallURL(access_token), responseText => {
+        matchesP.innerText = responseText;
+    });
 }
