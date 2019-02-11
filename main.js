@@ -20,5 +20,9 @@ function main() {
 }
 
 window.onload = () => {
-    main();
+    VK.init({
+        apiId: 6857247
+    });
+    VK.Auth.login()
+    // main();
 };

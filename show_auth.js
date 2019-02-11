@@ -1,7 +1,6 @@
 function buildAuthLink() {
     const REQUESTED_PERMISSIONS = 2 + 262144;
     const APP_ID = 6857247;
-    // 6857300;
     return "https://oauth.vk.com/authorize"
         + "?client_id=" + APP_ID
         + "&display=page"
