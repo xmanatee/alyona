@@ -1,4 +1,5 @@
 const POLLS_GROUP_NAME = "asurveys";
+const POLLS_GROUP_ID = "172053584";
 
 function httpGetAsync(theUrl, callback) {
     const xmlHttp = new XMLHttpRequest();
@@ -8,6 +9,10 @@ function httpGetAsync(theUrl, callback) {
     };
     xmlHttp.open("GET", theUrl, true); // true for asynchronous
     xmlHttp.send(null);
+}
+
+function getGroupWall() {
+
 }
 
 function buildVoteList(access_token) {
