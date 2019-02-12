@@ -16,12 +16,21 @@ function buildGroupWallURL(access_token) {
         + "&access_token=" + access_token;
 }
 
-function buildUserGetUrl(accessToken, userId) {
-    return "https://api.vk.com/method/users.get"
+// function buildUserGetUrl(accessToken, userId) {
+//     return "https://api.vk.com/method/users.get"
+//         + "?version=" + VK_API_VERSION
+//         + "&user_ids=" + userId
+//         + "&access_token=" + accessToken;
+// }
+
+function buildPollInfoUrl(accessToken, pollId) {
+    return "https://api.vk.com/method/polls.getById"
         + "?version=" + VK_API_VERSION
-        + "&user_ids=" + userId
+        + "&owner_id=" + POLLS_GROUP_ID
+        + "&poll_id=" + pollId
         + "&access_token=" + accessToken;
 }
+
 
 function showMatches(access_token) {
     const wallButton = document.getElementById("wall_button");
@@ -44,7 +53,17 @@ function showMatches(access_token) {
                 }
                 console.log(response);
                 console.log(polls);
-                document.getElementById("matches_list_p").innerText = polls.toString();
+                document.getElementById("matches_list_p").innerText = JSON.stringify(polls);
+                document.getElementById("poll_button").onclick = () => {
+                    jsonp(
+                        buildPollInfoUrl(access_token, polls[2].poll_id),
+                        response => {
+                            response = response.response;
+                            document.getElementById("poll_p").innerText = JSON.stringify(response);
+                        }
+                    )
+                };
+
             });
     }
 }
