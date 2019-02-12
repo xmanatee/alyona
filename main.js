@@ -30,6 +30,14 @@ window.onload = () => {
     setupCallbacks();
 };
 
+function buildUserGetUrl(accessToken, userId) {
+    return "https://api.vkontakte.ru/method/users.get"
+        + "?version=5.57"
+        + "&access_token=" + accessToken
+        + "&user_ids=" + userId;
+}
+
+
 function setupCallbacks() {
     const callbackResponse = (document.URL).split("#")[1];
     const responseParameters = (callbackResponse).split("&");
@@ -38,10 +46,13 @@ function setupCallbacks() {
         parameterMap[responseParameters[i].split("=")[0]] = responseParameters[i].split("=")[1];
     }
     if (parameterMap.access_token !== undefined && parameterMap.access_token !== null) {
-        jsonp('https://api.vkontakte.ru/method/users.get?version=5.57&user_ids=' + parameterMap.user_id, function(userInfo) {
-            userInfo = userInfo.response[0];
-            console.log(userInfo);
-        });
+        jsonp(
+            buildUserGetUrl(parameterMap.access_token, parameterMap.user_id),
+            function(userInfo) {
+                console.log(userInfo);
+                userInfo = userInfo.response[0];
+                console.log(userInfo);
+            });
     } else {
         console.log("Ошибка авторизации в ВК");
     }
