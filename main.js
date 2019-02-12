@@ -4,7 +4,10 @@ function log(name, value) {
 }
 
 function parseParams() {
-    const callbackResponse = (document.URL).split("#")[1];
+    const callbackResponse = window.location.href.split("#")[1];
+    if (callbackResponse === undefined) {
+        return [];
+    }
     const responseParameters = (callbackResponse).split("&");
     const parameterMap = [];
     for (let i = 0; i < responseParameters.length; i++) {
