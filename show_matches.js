@@ -47,6 +47,7 @@ function showMatches(access_token) {
                 }
                 log("response", response);
                 log("polls", polls);
+                console.log(polls);
                 document.getElementById("matches_list_p").innerText = polls;
             });
     }
