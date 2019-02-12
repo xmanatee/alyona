@@ -18,6 +18,7 @@ function main() {
     const access_token = getAccessToken();
 
     console.log("access_token = " + access_token);
+    console.log("typeof access_token = " + typeof access_token);
 
     if (access_token) {
         console.log("present");
