@@ -10,19 +10,17 @@ function getAccessToken() {
 }
 
 function main() {
-    const access_token = getAccessToken();
+    showAuth();
 
+    const access_token = getAccessToken();
+    console.log(access_token);
     if (access_token) {
-        console.log("before showAuth()");
-        showAuth();
-    } else {
-        console.log("before showMatches()");
+        console.log("present");
         showMatches(access_token);
     }
 }
 
-window.onfocus = () => {
-// window.onload = () => {
+window.onload = () => {
     console.log("in window.onload");
     // VK.init({
     //     apiId: 6857247

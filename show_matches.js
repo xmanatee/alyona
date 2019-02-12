@@ -18,8 +18,12 @@ function getGroupWallURL(access_token) {
 }
 
 function showMatches(access_token) {
-    const matchesP = document.getElementById("matches_list_p");
-    httpGetAsync(getGroupWallURL(access_token), responseText => {
-        matchesP.innerText = responseText;
-    });
+    const wallButton = document.getElementById("wall_button");
+
+    wallButton.onclick = () => {
+        const matchesP = document.getElementById("matches_list_p");
+        httpGetAsync(getGroupWallURL(access_token), responseText => {
+            matchesP.innerText = responseText;
+        });
+    };
 }
