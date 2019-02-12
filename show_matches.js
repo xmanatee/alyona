@@ -13,6 +13,7 @@ function buildGroupWallURL(access_token) {
         + "?version=" + VK_API_VERSION
         + "&owner_id=" + POLLS_GROUP_ID
         + "&count=100"
+        + "&extended=1"
         + "&access_token=" + access_token;
 }
 
