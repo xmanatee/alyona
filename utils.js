@@ -10,3 +10,7 @@ function jsonp(url, callback) {
     script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
     document.body.appendChild(script);
 }
+
+function log(name, value) {
+    console.log("KPSO| " + name + " = '" + value + "' [" + typeof value + "]");
+}

@@ -32,16 +32,19 @@ function showMatches(access_token) {
             response => {
                 // const items = response.response.items;
                 const items = response.response;
+                log("items", items);
                 const polls = [];
                 for (let item in items) {
+                    log("item", item);
                     for (let attachment in item.attachments) {
+                        log("attachment", attachment);
                         if (attachment.type == "poll") {
                             polls.push(attachment.poll);
                         }
                     }
                 }
-                console.log(response);
-                console.log(polls);
+                log("response", response);
+                log("polls", polls);
                 document.getElementById("matches_list_p").innerText = polls;
             });
     // }

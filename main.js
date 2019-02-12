@@ -1,8 +1,4 @@
 
-function log(name, value) {
-    console.log("KPSO| " + name + " = '" + value + "' [" + typeof value + "]");
-}
-
 function parseParams() {
     const callbackResponse = window.location.href.split("#")[1];
     if (callbackResponse === undefined) {
