@@ -56,7 +56,7 @@ function showMatches(access_token) {
                 document.getElementById("matches_list_p").innerText = JSON.stringify(polls);
                 document.getElementById("poll_button").onclick = () => {
                     jsonp(
-                        buildPollInfoUrl(access_token, polls[2].poll_id),
+                        buildPollInfoUrl(access_token, polls[0].poll_id),
                         response => {
                             document.getElementById("poll_p").innerText = JSON.stringify(response);
                         }
