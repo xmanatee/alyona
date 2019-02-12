@@ -44,7 +44,7 @@ function showMatches(access_token) {
                 }
                 console.log(response);
                 console.log(polls);
-                document.getElementById("matches_list_p").innerText = polls;
+                document.getElementById("matches_list_p").innerText = polls.toString();
             });
     }
 }
