@@ -27,12 +27,12 @@ function buildUserGetUrl(accessToken, userId) {
 function showMatches(access_token) {
     const wallButton = document.getElementById("wall_button");
 
-    wallButton.onclick = () => {
+    // wallButton.onclick = () => {
         jsonp(
             buildGroupWallURL(access_token),
             response => {
                 console.log(response);
                 document.getElementById("matches_p").innerText = response;
             });
-    }
+    // }
 }
