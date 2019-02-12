@@ -10,7 +10,7 @@ function getAccessToken() {
     log("parsedUrl.searchParams.get(\"access_token\")", parsedUrl.searchParams.get("access_token"));
     log("sessionStorage.getItem(\"access_token\")", sessionStorage.getItem("access_token"));
 
-    if (access_token === "null") {
+    if (access_token === "null" || access_token === "") {
         access_token = null;
     }
 
