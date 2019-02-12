@@ -1,5 +1,5 @@
 
-const HTML_ADDRESS = "https://xmanatee.github.io/kpso_matches";
+
 
 function getAccessToken() {
     const parsedUrl = new URL(window.location.href);
@@ -20,9 +20,9 @@ function main() {
 }
 
 window.onload = () => {
-    VK.init({
-        apiId: 6857247
-    });
-    VK.Auth.login()
-    // main();
+    // VK.init({
+    //     apiId: 6857247
+    // });
+    // VK.Auth.login()
+    main();
 };
