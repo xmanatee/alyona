@@ -1,11 +1,14 @@
 
+function log(name, value) {
+    console.log("KPSO| " + name + " = '" + value + "' [" + typeof value + "]");
+}
 
 function getAccessToken() {
     const parsedUrl = new URL(window.location.href);
     let access_token = parsedUrl.searchParams.get("access_token") || localStorage.getItem("access_token");
 
-    console.log("parsedUrl.searchParams.get(\"access_token\") = " + parsedUrl.searchParams.get("access_token"));
-    console.log("localStorage.getItem(\"access_token\") = " + localStorage.getItem("access_token"));
+    log("parsedUrl.searchParams.get(\"access_token\")", parsedUrl.searchParams.get("access_token"));
+    log("localStorage.getItem(\"access_token\")", localStorage.getItem("access_token"))
 
     if (access_token === "") {
         access_token = null;
@@ -19,7 +22,8 @@ function main() {
 
     const access_token = getAccessToken();
 
-    console.log("access_token = " + access_token);
+    log("access_token", access_token);
+
     if (access_token) {
         console.log("present");
         showMatches(access_token);
