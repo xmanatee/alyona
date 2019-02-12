@@ -13,7 +13,6 @@ function buildGroupWallURL(access_token) {
         + "?version=" + VK_API_VERSION
         + "&owner_id=" + POLLS_GROUP_ID
         + "&count=100"
-        + "&extended=1"
         + "&access_token=" + access_token;
 }
 
@@ -31,7 +30,8 @@ function showMatches(access_token) {
         jsonp(
             buildGroupWallURL(access_token),
             response => {
-                const items = response.response.items;
+                // const items = response.response.items;
+                const items = response.response;
                 const polls = [];
                 for (let item in items) {
                     for (let attachment in item.attachments) {
