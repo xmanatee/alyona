@@ -27,35 +27,3 @@ window.onload = () => {
     main();
     setupCallbacks();
 };
-
-function jsonp(url, callback) {
-    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-    window[callbackName] = function(data) {
-        delete window[callbackName];
-        document.body.removeChild(script);
-        callback(data);
-    };
-
-    const script = document.createElement('script');
-    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
-    document.body.appendChild(script);
-}
-
-function setupCallbacks() {
-    const callbackResponse = (document.URL).split("#")[1];
-    const responseParameters = (callbackResponse).split("&");
-    const parameterMap = [];
-    for (let i = 0; i < responseParameters.length; i++) {
-        parameterMap[responseParameters[i].split("=")[0]] = responseParameters[i].split("=")[1];
-    }
-    if (parameterMap.access_token !== undefined && parameterMap.access_token !== null) {
-        jsonp(
-            buildUserGetUrl(parameterMap.access_token, parameterMap.user_id),
-            userInfo => {
-                userInfo = userInfo.response[0];
-                console.log(userInfo);
-            });
-    } else {
-        console.log("Ошибка авторизации в ВК");
-    }
-}
