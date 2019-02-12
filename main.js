@@ -13,8 +13,10 @@ function main() {
     const access_token = getAccessToken();
 
     if (access_token) {
+        console.log("before showAuth()");
         showAuth();
     } else {
+        console.log("before showMatches()");
         showMatches(access_token);
     }
 }

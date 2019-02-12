@@ -7,7 +7,7 @@ const APP_ID = 6857247;
 function buildAuthLink() {
     return "https://oauth.vk.com/authorize"
         + "?client_id=" + APP_ID
-        + "&display=page"
+        // + "&display=page"
         + "&redirect_uri=" + HTML_ADDRESS
         + "&scope=" + REQUESTED_PERMISSIONS
         + "&response_type=token"
