@@ -1,9 +1,16 @@
 
+function log(smth) {
+    const eval_smath = eval(smth);
+    console.log("KPSO: " + smth + " = '" + eval_smath + "' [" + typeof eval_smath + "]");
+}
 
 
 function getAccessToken() {
     const parsedUrl = new URL(window.location.href);
     let access_token = parsedUrl.searchParams.get("access_token") || localStorage.getItem("access_token");
+
+    log("parsedUrl.searchParams.get(\"access_token\")");
+    log("localStorage.getItem(\"access_token\")");
 
     if (access_token === "") {
         access_token = null;
@@ -17,8 +24,7 @@ function main() {
 
     const access_token = getAccessToken();
 
-    console.log("access_token = " + access_token);
-    console.log("typeof access_token = " + typeof access_token);
+    log("access_token");
 
     if (access_token) {
         console.log("present");
