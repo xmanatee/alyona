@@ -13,7 +13,8 @@ function httpGetAsync(theUrl, callback) {
 
 function buildGroupWallURL(access_token) {
     return "https://api.vk.com/method/wall.get"
-        + "?owner_id=" + POLLS_GROUP_ID
+        + "?version=5.57"
+        + "&owner_id=" + POLLS_GROUP_ID
         + "&access_token=" + access_token;
 }
 
