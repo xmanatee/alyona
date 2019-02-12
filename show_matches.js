@@ -11,19 +11,28 @@ function httpGetAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
-function getGroupWallURL(access_token) {
+function buildGroupWallURL(access_token) {
     return "https://api.vk.com/method/wall.get"
         + "?owner_id=" + POLLS_GROUP_ID
         + "&access_token=" + access_token;
+}
+
+function buildUserGetUrl(accessToken, userId) {
+    return "https://api.vk.com/method/users.get"
+        + "?version=5.57"
+        + "&access_token=" + accessToken
+        + "&user_ids=" + userId;
 }
 
 function showMatches(access_token) {
     const wallButton = document.getElementById("wall_button");
 
     wallButton.onclick = () => {
-        const matchesP = document.getElementById("matches_list_p");
-        httpGetAsync(getGroupWallURL(access_token), responseText => {
-            matchesP.innerText = responseText;
-        });
-    };
+        jsonp(
+            buildGroupWallURL(access_token),
+            response => {
+                console.log(response);
+                document.getElementById("matches_p").innerText = response;
+            });
+    }
 }

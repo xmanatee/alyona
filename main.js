@@ -10,33 +10,36 @@ function getAccessToken() {
 }
 
 function main() {
-    showAuth();
 
     const access_token = getAccessToken();
-    console.log(access_token);
+
+    console.log("access_token = " + access_token);
+
     if (access_token) {
         console.log("present");
         showMatches(access_token);
+    } else {
+        showAuth()
     }
 }
 
 window.onload = () => {
-    console.log("in window.onload");
-    // VK.init({
-    //     apiId: 6857247
-    // });
-    // VK.Auth.login()
     main();
     setupCallbacks();
 };
 
-function buildUserGetUrl(accessToken, userId) {
-    return "https://api.vk.com/method/users.get"
-        + "?version=5.57"
-        + "&access_token=" + accessToken
-        + "&user_ids=" + userId;
-}
+function jsonp(url, callback) {
+    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    window[callbackName] = function(data) {
+        delete window[callbackName];
+        document.body.removeChild(script);
+        callback(data);
+    };
 
+    const script = document.createElement('script');
+    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+    document.body.appendChild(script);
+}
 
 function setupCallbacks() {
     const callbackResponse = (document.URL).split("#")[1];
@@ -48,24 +51,11 @@ function setupCallbacks() {
     if (parameterMap.access_token !== undefined && parameterMap.access_token !== null) {
         jsonp(
             buildUserGetUrl(parameterMap.access_token, parameterMap.user_id),
-            function(userInfo) {
-                console.log(userInfo);
+            userInfo => {
                 userInfo = userInfo.response[0];
                 console.log(userInfo);
             });
     } else {
         console.log("Ошибка авторизации в ВК");
-    }
-    function jsonp(url, callback) {
-        const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-        window[callbackName] = function(data) {
-            delete window[callbackName];
-            document.body.removeChild(script);
-            callback(data);
-        };
-
-        const script = document.createElement('script');
-        script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
-        document.body.appendChild(script);
     }
 }
