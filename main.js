@@ -3,7 +3,11 @@
 
 function getAccessToken() {
     const parsedUrl = new URL(window.location.href);
-    const access_token = parsedUrl.searchParams.get("access_token") || localStorage.getItem("access_token");
+    let access_token = parsedUrl.searchParams.get("access_token") || localStorage.getItem("access_token");
+
+    if (access_token === "") {
+        access_token = null;
+    }
 
     localStorage.setItem("access_token", access_token);
     return access_token;
@@ -25,5 +29,4 @@ function main() {
 
 window.onload = () => {
     main();
-    setupCallbacks();
 };
