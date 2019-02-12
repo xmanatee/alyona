@@ -1,5 +1,5 @@
-// const HTML_ADDRESS = "https://xmanatee.github.io/kpso_matches";
-const HTML_ADDRESS = "http://localhost:63342/kpso_matches/index.html";
+const HTML_ADDRESS = "https://xmanatee.github.io/kpso_matches";
+// const HTML_ADDRESS = "http://localhost:63342/kpso_matches/index.html";
 const REQUESTED_PERMISSIONS = 2 + 262144;
 const APP_ID = 6857247;
 
