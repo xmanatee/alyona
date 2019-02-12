@@ -21,7 +21,9 @@ function main() {
     }
 }
 
-window.onload = () => {
+window.onfocus = () => {
+// window.onload = () => {
+    console.log("in window.onload");
     // VK.init({
     //     apiId: 6857247
     // });
