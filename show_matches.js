@@ -34,7 +34,7 @@ function showMatches(access_token) {
                 const items = response.response;
                 log("items", items);
                 const polls = [];
-                for (let i = 0; i < items.length; ++i) {
+                for (let i = 1; i < items.length; ++i) {
                     const item = items[i];
                     log("item", item);
                     for (let j = 0; j < item.attachments.length; ++j) {
