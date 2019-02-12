@@ -24,7 +24,7 @@
 <!--</body>-->
 <!--</html>-->
 
-<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+<script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
 
 <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
 
@@ -39,6 +39,7 @@
             alert('not auth');
         }
     }
+    console.log(localStorage);
     VK.Auth.getLoginStatus(authInfo);
     VK.UI.button('login_button');
 </script>
