@@ -5,16 +5,16 @@ function log(name, value) {
 
 function getAccessToken() {
     const parsedUrl = new URL(window.location.href);
-    let access_token = parsedUrl.searchParams.get("access_token") || localStorage.getItem("access_token");
+    let access_token = parsedUrl.searchParams.get("access_token") || sessionStorage.getItem("access_token");
 
     log("parsedUrl.searchParams.get(\"access_token\")", parsedUrl.searchParams.get("access_token"));
-    log("localStorage.getItem(\"access_token\")", localStorage.getItem("access_token"))
+    log("sessionStorage.getItem(\"access_token\")", sessionStorage.getItem("access_token"));
 
-    if (access_token === "") {
+    if (access_token === "null") {
         access_token = null;
     }
 
-    localStorage.setItem("access_token", access_token);
+    sessionStorage.setItem("access_token", access_token);
     return access_token;
 }
 
