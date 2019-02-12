@@ -58,6 +58,7 @@ function showMatches(access_token) {
                     jsonp(
                         buildPollInfoUrl(access_token, polls[0].poll_id),
                         response => {
+                            console.log(response);
                             document.getElementById("poll_p").innerText = JSON.stringify(response);
                         }
                     )
