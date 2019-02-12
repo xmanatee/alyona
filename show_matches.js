@@ -32,21 +32,17 @@ function showMatches(access_token) {
             response => {
                 // const items = response.response.items;
                 const items = response.response;
-                log("items", items);
                 const polls = [];
                 for (let i = 1; i < items.length; ++i) {
                     const item = items[i];
-                    log("item", item);
                     for (let j = 0; j < item.attachments.length; ++j) {
                         const attachment = item.attachments[j];
-                        log("attachment", attachment);
                         if (attachment.type == "poll") {
                             polls.push(attachment.poll);
                         }
                     }
                 }
-                log("response", response);
-                log("polls", polls);
+                console.log(response);
                 console.log(polls);
                 document.getElementById("matches_list_p").innerText = polls;
             });
