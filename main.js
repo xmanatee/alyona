@@ -31,7 +31,7 @@ window.onload = () => {
 };
 
 function buildUserGetUrl(accessToken, userId) {
-    return "https://api.vkontakte.ru/method/users.get"
+    return "https://api.vk.com/method/users.get"
         + "?version=5.57"
         + "&access_token=" + accessToken
         + "&user_ids=" + userId;
