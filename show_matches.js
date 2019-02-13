@@ -28,6 +28,7 @@ function buildPollInfoUrl(accessToken, pollId) {
         + "?version=" + VK_API_VERSION
         + "&owner_id=" + POLLS_GROUP_ID
         + "&poll_id=" + pollId
+        + "&friends_count=0"
         + "&access_token=" + accessToken;
 }
 
