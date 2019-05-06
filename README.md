@@ -2,6 +2,12 @@
 
 [LINK](https://xmanatee.github.io/alyona)
 
+Taking icons from:
+
+* https://iconify.design/icon-sets/simple-line-icons/
+
+* https://fontawesome.com/icons?d=gallery&q=no&s=solid
+
 ##Non auth stats:
 
 1) Top couple
