@@ -1,0 +1,73 @@
+i.chart-icon {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 15px;
+    background: -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
+    background: linear-gradient(to left, #7b4397, #dc2430);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.masthead i.chart-icon {
+    background: -webkit-gradient(linear, right top, left top, from(#ffffff), to(#dddddd));
+    background: linear-gradient(to left, #ffffff, #dddddd);
+    -webkit-background-clip: text;
+}
+
+.masthead div.chart-item {
+    padding: 15px 0;
+    -webkit-background-clip: text;
+}
+
+.masthead .chart-item i {
+    font-size: 20px;
+    display: block;
+    -webkit-text-fill-color: transparent;
+}
+
+.masthead .item-1 i {
+    background: -webkit-gradient(linear, right top, left top, from(#FDB931), to(#8A6E2F));
+    background: linear-gradient(to left, #FDB931, #8A6E2F);
+    -webkit-background-clip: text;
+}
+
+.masthead .item-2 i, .item-3 i {
+    background: -webkit-gradient(linear, right top, left top, from(#BEC0C2), to(#7D7D7A));
+    background: linear-gradient(to left, #BEC0C2, #7D7D7A);
+    -webkit-background-clip: text;
+}
+
+.masthead .item-4 i, .item-5 i {
+    background: -webkit-gradient(linear, right top, left top, from(#E5BD96), to(#CD7F32));
+    background: linear-gradient(to left, #E5BD96, #CD7F32);
+    -webkit-background-clip: text;
+}
+
+section div.chart-item {
+    padding: 15px 0;
+    -webkit-background-clip: text;
+}
+
+section .chart-item i {
+    font-size: 20px;
+    display: block;
+    -webkit-text-fill-color: transparent;
+}
+
+section .item-1 i {
+    background: -webkit-gradient(linear, right top, left top, from(#FDB931), to(#8A6E2F));
+    background: linear-gradient(to left, #FDB931, #8A6E2F);
+    -webkit-background-clip: text;
+}
+
+section .item-2 i, .item-3 i {
+    background: -webkit-gradient(linear, right top, left top, from(#BEC0C2), to(#7D7D7A));
+    background: linear-gradient(to left, #BEC0C2, #7D7D7A);
+    -webkit-background-clip: text;
+}
+
+section .item-4 i, .item-5 i {
+    background: -webkit-gradient(linear, right top, left top, from(#E5BD96), to(#CD7F32));
+    background: linear-gradient(to left, #E5BD96, #CD7F32);
+    -webkit-background-clip: text;
+}
