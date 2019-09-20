@@ -29,6 +29,16 @@ function getAccessToken() {
     return access_token;
 }
 
+function process_stat_request(stat_raw) {
+    const stat = JSON.parse(stat_raw);
+    set_chart(
+        stat["stat_id"],
+        stat["stat_icon"],
+        stat["stat_name"],
+        stat["stat_description"],
+        stat["user_ids"]);
+}
+
 function initialize() {
 
     set_chart(
@@ -37,24 +47,12 @@ function initialize() {
         "Лучшие Воутеры",
         "asdasd",
         ["Mikhail Nemilov", "Natalia Bobrovskaya", "Elin Rin", "Stepan Zuev", "Kolyun'a Makeenkov"]);
-    set_chart(
-        "best_couples",
-        "icon-people",
-        "Лучшые Парочки",
-        "asdasd",
-        ["Mikhail Nemilov", "Natalia Bobrovskaya", "Elin Rin", "Stepan Zuev", "Kolyun'a Makeenkov"]);
-    set_chart(
-        "yes_fellas",
-        "icon-like",
-        "ДАшки",
-        "asdasd",
-        ["Mikhail Nemilov", "Natalia Bobrovskaya", "Elin Rin", "Stepan Zuev", "Kolyun'a Makeenkov"]);
-    set_chart(
-        "no_fellas",
-        "icon-dislike",
-        "НЕТушки",
-        "asdasd",
-        ["Mikhail Nemilov", "Natalia Bobrovskaya", "Elin Rin", "Stepan Zuev", "Kolyun'a Makeenkov"]);
+
+    load_file("datax/stat_best_couples.json", process_stat_request);
+
+    load_file("datax/stat_yes_fellas.json", process_stat_request);
+
+    load_file("datax/stat_no_fellas.json", process_stat_request);
 
     const access_token = getAccessToken();
 
