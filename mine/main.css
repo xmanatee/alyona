@@ -8,6 +8,10 @@ i.chart-icon {
     -webkit-text-fill-color: transparent;
 }
 
+.masthead .text-muted {
+    color: #ddd !important;
+}
+
 .masthead i.chart-icon {
     background: -webkit-gradient(linear, right top, left top, from(#ffffff), to(#dddddd));
     background: linear-gradient(to left, #ffffff, #dddddd);
