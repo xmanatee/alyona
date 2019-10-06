@@ -33,9 +33,15 @@ function buildPollInfoUrl(accessToken, pollId) {
 }
 
 
-function showMatches(access_token) {
-    const wallButton = document.getElementById("wall_button");
+function showAuthorized(access_token) {
 
+    const authButton = document.getElementById("vk_authorize");
+    authButton.style.display = "none";
+
+    const downloadSection = document.getElementById("download-section");
+    downloadSection.style.display = "none";
+
+    const wallButton = document.getElementById("wall_button");
     wallButton.onclick = () => {
         jsonp(
             buildGroupWallURL(access_token),

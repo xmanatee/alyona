@@ -9,7 +9,10 @@ function buildAuthLink() {
         + "&state=123456";
 }
 
-function showAuth() {
+function showNonAuthorized() {
     const vkButton = document.getElementById("vk_authorize");
     vkButton.href = buildAuthLink();
+
+    const authorizedSection = document.getElementById("authorized-section");
+    authorizedSection.style.display = "none";
 }

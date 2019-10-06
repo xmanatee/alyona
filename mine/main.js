@@ -59,10 +59,9 @@ function initialize() {
     log("access_token", access_token);
 
     if (access_token) {
-        console.log("present");
-        showMatches(access_token);
+        showAuthorized(access_token);
     } else {
-        showAuth()
+        showNonAuthorized()
     }
 }
 
