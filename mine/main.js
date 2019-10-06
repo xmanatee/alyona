@@ -49,9 +49,7 @@ function initialize() {
         ["Mikhail Nemilov", "Natalia Bobrovskaya", "Elin Rin", "Stepan Zuev", "Kolyun'a Makeenkov"]);
 
     load_file("datax/stat_best_couples.json", process_stat_request);
-
     load_file("datax/stat_yes_fellas.json", process_stat_request);
-
     load_file("datax/stat_no_fellas.json", process_stat_request);
 
     const access_token = getAccessToken();
@@ -60,6 +58,9 @@ function initialize() {
 
     if (access_token) {
         showAuthorized(access_token);
+        // load_file("datax/stat_best_matches_for_U.json", process_stat_request);
+        // load_file("datax/stat_worst_matches_for_U.json", process_stat_request);
+        // load_file("datax/stat_best_friends_for_U.json", process_stat_request);
     } else {
         showNonAuthorized()
     }

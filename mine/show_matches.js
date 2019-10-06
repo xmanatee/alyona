@@ -41,36 +41,4 @@ function showAuthorized(access_token) {
     const downloadSection = document.getElementById("download-section");
     downloadSection.style.display = "none";
 
-    const wallButton = document.getElementById("wall_button");
-    wallButton.onclick = () => {
-        jsonp(
-            buildGroupWallURL(access_token),
-            response => {
-                // const items = response.response.items;
-                const items = response.response;
-                const polls = [];
-                for (let i = 1; i < items.length; ++i) {
-                    const item = items[i];
-                    for (let j = 0; j < item.attachments.length; ++j) {
-                        const attachment = item.attachments[j];
-                        if (attachment.type == "poll") {
-                            polls.push(attachment.poll);
-                        }
-                    }
-                }
-                console.log(response);
-                console.log(polls);
-                document.getElementById("matches_list_p").innerText = JSON.stringify(polls);
-                document.getElementById("poll_button").onclick = () => {
-                    jsonp(
-                        buildPollInfoUrl(access_token, polls[0].poll_id),
-                        response => {
-                            console.log(response);
-                            document.getElementById("poll_p").innerText = JSON.stringify(response);
-                        }
-                    )
-                };
-
-            });
-    }
 }
